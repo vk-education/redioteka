@@ -11,22 +11,24 @@ data class Movie(
     val avatar: String,
     @SerializedName("description")
     val description: String,
-    @SerializedName("id")
+    @SerializedName("year")
     val year: String,
-    @SerializedName("id")
+    @SerializedName("rating")
     val rating: Float,
-    @SerializedName("id")
+    @SerializedName("genres")
     val genres: List<String>,
-    @SerializedName("id")
+    @SerializedName("countries")
     val countries: List<String>,
-    @SerializedName("id")
-    val director: List<String>,
-    @SerializedName("id")
+    @SerializedName("director")
+    val directors: List<String>,
+    @SerializedName("actors")
     val actors: List<Actor>,
-    @SerializedName("id")
+    @SerializedName("is_free")
     val isFree: Boolean,
-    @SerializedName("id")
+    @SerializedName("type")
     val type: String,
-    @SerializedName("id")
-    val seriesList: List<Int>
+    @SerializedName("series_list")
+    val seriesList: List<Int>,
+    @SerializedName("availability")
+    val available: Int,
 )
