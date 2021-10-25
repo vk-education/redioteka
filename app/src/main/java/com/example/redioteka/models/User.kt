@@ -11,4 +11,6 @@ data class User(
     val email: String,
     @SerializedName("avatar")
     val avatar: String
-)
+) {
+    constructor() : this(1, "name", "email", "avatar")
+}

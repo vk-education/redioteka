@@ -15,4 +15,6 @@ data class Actor(
     var avatar: String,
     @SerializedName("movies")
     val movies: List<Movie>,
-)
+) {
+    constructor() : this(1, "firstname", "lastname", "birth", "avatar", listOf())
+}

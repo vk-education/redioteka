@@ -14,7 +14,7 @@ data class Movie(
     @SerializedName("year")
     val year: String,
     @SerializedName("rating")
-    val rating: Float,
+    val rating: Double,
     @SerializedName("genres")
     val genres: List<String>,
     @SerializedName("countries")
@@ -31,4 +31,7 @@ data class Movie(
     val seriesList: List<Int>,
     @SerializedName("availability")
     val available: Int,
-)
+) {
+    constructor() : this(1, "title", "avatar", "descr", "year", 5.5,
+        listOf("genre"), listOf("countries"), listOf("directors"), listOf(), false, "type", listOf(), 0)
+}
