@@ -7,12 +7,12 @@ import com.example.redioteka.models.Actor
 import com.example.redioteka.models.Movie
 
 interface ServiceApi {
-    @GET("/users/{user}")
+    @GET("users/{user}")
     suspend fun getUser(@Path("user") userId: String): User
 
-    @GET("/actors/{actor}")
+    @GET("actors/{actor}")
     suspend fun getActor(@Path("actor") actorId: String): Actor
 
-    @GET("/media/movie/{movie}")
+    @GET("media/movie/{movie}")
     suspend fun getMovie(@Path("movie") movieId: String): Movie
 }
