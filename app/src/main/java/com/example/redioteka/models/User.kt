@@ -10,7 +10,22 @@ data class User(
     @SerializedName("email")
     val email: String,
     @SerializedName("avatar")
-    val avatar: String
+    val avatar: String,
+    @SerializedName("is_sub")
+    val subscriber: Boolean
 ) {
-    constructor() : this(1, "name", "email", "avatar")
+    constructor() : this(1, "name", "email", "avatar", false)
+}
+
+data class UserAuth(
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("email")
+    val email: String,
+    @SerializedName("password")
+    val password: String,
+    @SerializedName("confirm_password")
+    val passwordConfirm: String,
+) {
+    constructor() : this( "name", "email", "pass", "confirm")
 }

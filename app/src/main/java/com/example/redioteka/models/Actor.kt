@@ -18,3 +18,15 @@ data class Actor(
 ) {
     constructor() : this(1, "firstname", "lastname", "birth", "avatar", listOf())
 }
+
+data class SearchResult(
+    @SerializedName("movies")
+    val movies: List<Movie>,
+    @SerializedName("actors")
+    val actors: List<Actor>
+)
+
+data class Message(
+    @SerializedName("message")
+    val status: String
+)
