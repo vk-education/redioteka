@@ -1,6 +1,8 @@
 package com.example.redioteka
 
 import com.example.redioteka.models.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface ServiceApi {
@@ -10,6 +12,10 @@ interface ServiceApi {
     @PATCH("users/{user}")
     suspend fun updateUser(@Path("user") userId: String,
                            @Body form: User): User
+
+    @PUT("users/{user}/avatar")
+    suspend fun updateAvatar(@Path("user") userId: String,
+                             @Part avatar: MultipartBody.Part): User
 
     @POST("users/signup")
     suspend fun signupUser(@Body form: UserAuth): User

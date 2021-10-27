@@ -29,3 +29,8 @@ data class UserAuth(
 ) {
     constructor() : this( "name", "email", "pass", "confirm")
 }
+
+data class UserAvatar(
+    @SerializedName("user_avatar")
+    val avatar: String
+)
