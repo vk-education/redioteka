@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/movie_title"
+            android:src="@mipmap/movie_image" />
+
+    <TextView
+            android:id="@+id/movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/movie_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/movie_type"
+            tools:text="Опасные иллюзии" />
+
+    <TextView
+            android:id="@+id/movie_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/movie_rating"
+            app:layout_constraintBottom_toTopOf="@id/play_button"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            android:background="@color/purple_700"
+            tools:text="Фильм" />
+
+    <TextView
+            android:id="@+id/movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/movie_type"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            app:layout_constraintBottom_toTopOf="@id/play_button"
+            android:background="@color/purple_700"
+            tools:text="5/10" />
+
+    <Button
+            android:id="@+id/play_button"
+            app:layout_constraintTop_toBottomOf="@id/movie_type"
+            app:layout_constraintBottom_toTopOf="@id/movie_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/add_favourite_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <Button
+            android:id="@+id/add_favourite_button"
+            app:layout_constraintTop_toBottomOf="@id/movie_type"
+            app:layout_constraintBottom_toTopOf="@id/movie_info"
+            app:layout_constraintStart_toEndOf="@id/play_button"
+            app:layout_constraintEnd_toStartOf="@id/like_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <Button
+            android:id="@+id/like_button"
+            app:layout_constraintTop_toBottomOf="@id/movie_type"
+            app:layout_constraintBottom_toTopOf="@id/movie_info"
+            app:layout_constraintStart_toEndOf="@id/add_favourite_button"
+            app:layout_constraintEnd_toStartOf="@id/dislike_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <Button
+            android:id="@+id/dislike_button"
+            app:layout_constraintTop_toBottomOf="@id/movie_type"
+            app:layout_constraintBottom_toTopOf="@id/movie_info"
+            app:layout_constraintStart_toEndOf="@id/like_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <TextView
+            android:id="@+id/movie_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/movie_rating"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/movie_description"
+            tools:text="Год: 2021  Жанр: Боевики, Семейные\nРежиссёр: Анна Элизабет Джеймс\nСтраны: США" />
+
+    <TextView
+            android:id="@+id/movie_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/movie_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Известная писательница переживает творческий кризис. Она нанимает для своих детей новую няню и начинает терять грань между реальностью и вымышленным миром." />
 </androidx.constraintlayout.widget.ConstraintLayout>
