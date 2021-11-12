@@ -1,22 +1,43 @@
 package com.example.redioteka.viewmodels
 
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.example.redioteka.models.Movie
 import com.example.redioteka.repository.MovieRepo
-import kotlinx.coroutines.launch
+import com.example.redioteka.repository.paged.MoviePagingSource
+import kotlinx.coroutines.flow.Flow
 
-class MovieViewModel() : ViewModel() {
-    private val movieRepo: MovieRepo = MovieRepo()
-    private val movieId: String = "2"
-    val movie = MutableLiveData<Movie>()
+class MovieViewModel : ViewModel() {
+    private var movie: Movie = Movie()
+    private val movieRepo = MovieRepo()
 
-    init {
-        viewModelScope.launch {
-            movie.value = movieRepo.getMovie(movieId)
-            Log.i("QUERY", movie.value.toString())
-        }
+    val movies: Flow<PagingData<Movie>> = getMovieListStream()
+
+    private fun getMovieListStream(): Flow<PagingData<Movie>> {
+        return Pager(PagingConfig(5)) {
+            MoviePagingSource(movieRepo)
+        }.flow
     }
+
+//    init {
+//        viewModelScope.launch {
+//            movie = movieRepo.getMovie(movieId)
+//            Log.i("QUERY", movie.toString())
+//        }
+//    }
 }
+
+//class MainViewModel(private val repository: MovieRepo) : ViewModel() {
+//
+//    val movies: Flow<PagingData<Movie>> = getMovieListStream()
+//        .map { pagingData -> pagingData.map { MovieModel.MovieItem(it) } }
+//
+//
+//    private fun getMovieListStream(): Flow<PagingData<Movie>> {
+//        return Pager(PagingConfig(20)) {
+//            MoviePagingSource(repository)
+//        }.flow
+//    }
+//}

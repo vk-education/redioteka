@@ -47,6 +47,7 @@ interface ServiceApi {
 
     @GET("media/category/top")
     suspend fun getTop(@Query("limit") limit: Int,
+                       @Query("offset") offset: Int,
                        @Query("type") type: String): MovieTop
 
     @GET("media/category/newest")

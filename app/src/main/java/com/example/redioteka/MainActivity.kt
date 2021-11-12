@@ -1,29 +1,30 @@
 package com.example.redioteka
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.activity.viewModels
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import com.example.redioteka.repository.ActorRepo
+import com.example.redioteka.repository.MovieRepo
+import com.example.redioteka.repository.UserRepo
 import com.example.redioteka.viewmodels.ActorViewModel
 import com.example.redioteka.viewmodels.MovieViewModel
 import com.example.redioteka.viewmodels.UserViewModel
+import com.example.redioteka.views.MovieView
 
 
 class MainActivity : AppCompatActivity() {
-    private val userViewModel by viewModels<UserViewModel>()
-    private val movieViewModel by viewModels<MovieViewModel>()
-    private val actorViewModel by viewModels<ActorViewModel>()
+    private val userRepo: UserRepo = UserRepo()
+    private val userViewModel: UserViewModel = UserViewModel(userRepo, "1")
+    private val movieRepo: MovieRepo = MovieRepo()
+    private val actorRepo: ActorRepo = ActorRepo()
+    private val actorViewModel: ActorViewModel = ActorViewModel(actorRepo, "3")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var uvm = userViewModel
-        var mvm = movieViewModel
-        var avm = actorViewModel
+        val intent = Intent(this, MovieView::class.java)
+        startActivity(intent)
+
     }
 }
