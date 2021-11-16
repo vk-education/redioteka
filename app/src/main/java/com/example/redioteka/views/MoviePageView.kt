@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.redioteka.databinding.MoviePageBinding
 import com.example.redioteka.models.Actor
-import com.example.redioteka.models.Movie
 import com.example.redioteka.viewmodels.MovieViewModel
 
 

@@ -3,18 +3,11 @@ package com.example.redioteka
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.activity.viewModels
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.redioteka.viewmodels.ActorViewModel
 import com.example.redioteka.viewmodels.MovieViewModel
 import com.example.redioteka.viewmodels.UserViewModel
 import com.example.redioteka.views.MoviePageView
-
 
 class MainActivity : AppCompatActivity() {
     private val userViewModel by viewModels<UserViewModel>()
@@ -28,5 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, MoviePageView::class.java)
         startActivity(intent)
+//
+//        val intent = Intent(this, MovieView::class.java)
+//        startActivity(intent)
+//
     }
 }
