@@ -27,9 +27,10 @@ class MovieAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(
     class MovieViewHolder(val movieItemBinding: MovieItemBinding) :
         RecyclerView.ViewHolder(movieItemBinding.root) {
         fun bind(movie: Movie?) {
-           movieItemBinding.cardTitle.text = movie?.title
-            Glide.with(itemView).load(movie?.avatar).into(movieItemBinding.cardImage);
-        } }
+            movieItemBinding.cardTitle.text = movie?.title
+            Glide.with(itemView).load(movie?.avatar).into(movieItemBinding.cardImage)
+        }
+    }
 
     companion object {
         private val MovieModelComparator = object : DiffUtil.ItemCallback<Movie>() {
@@ -41,5 +42,4 @@ class MovieAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(
                 oldItem == newItem
         }
     }
-
 }

@@ -1,7 +1,7 @@
 package com.example.redioteka.repository.paged
 
-import com.example.redioteka.models.Movie
 import androidx.paging.PagingSource
+import com.example.redioteka.models.Movie
 import com.example.redioteka.repository.MovieRepo
 
 class MoviePagingSource(
@@ -11,14 +11,17 @@ class MoviePagingSource(
 
         return try {
             val nextPage = params.key ?: 0
-            val movieListResponse = repository.getTopMovies(params.loadSize, nextPage * params.loadSize)
+            val movieListResponse = repository.getTopMovies(
+                params.loadSize,
+                nextPage * params.loadSize
+            )
 
             LoadResult.Page(
                 data = movieListResponse.movies,
-                prevKey = if (nextPage == 0) null else nextPage - 1 ,
+                prevKey = if (nextPage == 0) null else nextPage - 1,
                 nextKey = nextPage + 1
             )
-        }catch (e: Exception){
+        } catch (e: Exception) {
             LoadResult.Error(e)
         }
     }

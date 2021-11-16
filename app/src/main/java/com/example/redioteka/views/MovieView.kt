@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.redioteka.adapters.MovieAdapter
 import com.example.redioteka.adapters.MovieLoadStateAdapter
 import com.example.redioteka.databinding.ActivityMainBinding
@@ -42,7 +41,7 @@ class MovieView : AppCompatActivity() {
             }
         }
 
-        mainBinding.btnRetry.setOnClickListener{
+        mainBinding.btnRetry.setOnClickListener {
             movieAdapter.retry()
         }
 
@@ -55,8 +54,7 @@ class MovieView : AppCompatActivity() {
 
                 // Show ProgressBar
                 mainBinding.progressBar.visibility = View.VISIBLE
-            }
-            else {
+            } else {
                 // Hide ProgressBar
                 mainBinding.progressBar.visibility = View.GONE
 

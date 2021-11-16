@@ -21,7 +21,7 @@ class MovieLoadStateAdapter(
         txtErrorMessage.isVisible = loadState !is LoadState.Loading
         progress.isVisible = loadState is LoadState.Loading
 
-        if (loadState is LoadState.Error){
+        if (loadState is LoadState.Error) {
             txtErrorMessage.text = loadState.error.localizedMessage
         }
 

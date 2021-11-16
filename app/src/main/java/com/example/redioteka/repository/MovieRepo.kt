@@ -9,7 +9,6 @@ import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 class MovieRepo {
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://redioteka.com/api/")
@@ -22,6 +21,6 @@ class MovieRepo {
     }
 
     suspend fun getTopMovies(limit: Int, offset: Int): MovieTop = withContext(Dispatchers.IO) {
-        return@withContext api.getTop(limit, offset,"movie")
+        return@withContext api.getTop(limit, offset, "movie")
     }
 }

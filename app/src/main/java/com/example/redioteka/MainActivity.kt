@@ -1,14 +1,13 @@
 package com.example.redioteka
 
+import android.content.Intent
+import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.redioteka.viewmodels.ActorViewModel
 import com.example.redioteka.viewmodels.MovieViewModel
 import com.example.redioteka.viewmodels.UserViewModel
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.example.redioteka.views.MovieView
-
 
 class MainActivity : AppCompatActivity() {
     private val userViewModel by viewModels<UserViewModel>()

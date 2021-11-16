@@ -18,7 +18,6 @@ class MovieViewModel() : ViewModel() {
     private val movieId: String = "2"
     val movie = MutableLiveData<Movie>()
 
-
     val movies: Flow<PagingData<Movie>> = getMovieListStream()
 
     private fun getMovieListStream(): Flow<PagingData<Movie>> {
