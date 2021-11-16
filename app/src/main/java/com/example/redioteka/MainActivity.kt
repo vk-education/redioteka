@@ -23,15 +23,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-//
-//        var uvm = userViewModel
-        val mvm = movieViewModel
-        Log.i("OSDJFOISDJFOISDJFOIJ", mvm.movie.value?.title.toString())
-//        var avm = actorViewModel
-//
 
-//        val intent = Intent(this, MoviePageView::class.java)
-//        startActivity(intent)
+        setContentView(R.layout.activity_main)
+
+        val intent = Intent(this, MoviePageView::class.java)
+        startActivity(intent)
     }
 }

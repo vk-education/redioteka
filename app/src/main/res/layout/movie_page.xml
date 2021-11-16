@@ -55,9 +55,11 @@
             android:id="@+id/play_button"
             app:layout_constraintTop_toBottomOf="@id/movie_type"
             app:layout_constraintStart_toStartOf="parent"
+            android:background="@android:color/transparent"
             app:layout_constraintEnd_toStartOf="@id/add_favourite_button"
             android:layout_width="wrap_content"
-            tools:text="PLAY"
+            android:drawableTop="@drawable/ic_play"
+            android:textSize="0sp"
             android:layout_height="wrap_content" />
 
     <Button
@@ -65,8 +67,10 @@
             app:layout_constraintTop_toBottomOf="@id/movie_type"
             app:layout_constraintStart_toEndOf="@id/play_button"
             app:layout_constraintEnd_toStartOf="@id/like_button"
+            android:textSize="0sp"
             android:layout_width="wrap_content"
-            tools:text="FAV"
+            android:drawableTop="@drawable/ic_favourite"
+            android:background="@android:color/transparent"
             android:layout_height="wrap_content" />
 
     <Button
@@ -74,7 +78,9 @@
             app:layout_constraintTop_toBottomOf="@id/movie_type"
             app:layout_constraintStart_toEndOf="@id/add_favourite_button"
             app:layout_constraintEnd_toStartOf="@id/dislike_button"
-            tools:text="LIKE"
+            android:drawableTop="@drawable/ic_like"
+            android:textSize="0sp"
+            android:background="@android:color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -82,8 +88,10 @@
             android:id="@+id/dislike_button"
             app:layout_constraintTop_toBottomOf="@id/movie_type"
             app:layout_constraintStart_toEndOf="@id/like_button"
+            android:textSize="0sp"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="DISLIKE"
+            android:drawableTop="@drawable/ic_dislike"
+            android:background="@android:color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

@@ -15,18 +15,9 @@ class MovieViewModel() : ViewModel() {
     private val movieId: String = "2"
     val movie = MutableLiveData<Movie>()
 
-    fun getMovie(id: String): Movie? {
+    fun loadMovie(id: String) {
         viewModelScope.launch {
-            movie.value = movieRepo.getMovie(id)
-            Log.i("QUERY", movie.value.toString())
-        }
-        return movie.value
-    }
-
-    init {
-        viewModelScope.launch {
-            movie.value = movieRepo.getMovie(movieId)
-            Log.i("QUERY", movie.value.toString())
+            movie.postValue(movieRepo.getMovie(id))
         }
     }
 }
