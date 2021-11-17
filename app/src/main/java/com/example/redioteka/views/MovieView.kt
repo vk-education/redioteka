@@ -10,7 +10,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.redioteka.adapters.MovieAdapter
 import com.example.redioteka.adapters.MovieLoadStateAdapter
-import com.example.redioteka.databinding.ActivityMainBinding
+import com.example.redioteka.databinding.MovieViewBinding
 import com.example.redioteka.viewmodels.MovieViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -18,11 +18,11 @@ import kotlinx.coroutines.launch
 class MovieView : AppCompatActivity() {
     private val viewModel: MovieViewModel by viewModels()
     private lateinit var movieAdapter: MovieAdapter
-    private lateinit var mainBinding: ActivityMainBinding
+    private lateinit var mainBinding: MovieViewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        mainBinding = MovieViewBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
         movieAdapter = MovieAdapter()

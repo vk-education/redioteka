@@ -27,7 +27,8 @@ data class UserAuth(
     @SerializedName("confirm_password")
     val passwordConfirm: String,
 ) {
-    constructor() : this("name", "email", "pass", "confirm")
+    constructor() : this( "name", "email", "pass", "confirm")
+    constructor(email: String, password: String) : this("", email, password, "")
 }
 
 data class UserAvatar(
