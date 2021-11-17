@@ -28,6 +28,7 @@ data class UserAuth(
     val passwordConfirm: String,
 ) {
     constructor() : this( "name", "email", "pass", "confirm")
+    constructor(email: String, password: String) : this("", email, password, "")
 }
 
 data class UserAvatar(
