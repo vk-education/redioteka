@@ -27,6 +27,7 @@ class MovieView : AppCompatActivity() {
 
         movieAdapter = MovieAdapter()
 
+
         mainBinding.movieRecycler.apply {
             layoutManager = GridLayoutManager(context, 3)
             setHasFixedSize(true)

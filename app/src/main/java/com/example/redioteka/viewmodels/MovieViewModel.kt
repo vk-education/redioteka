@@ -1,6 +1,5 @@
 package com.example.redioteka.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,8 +16,13 @@ class MovieViewModel() : ViewModel() {
     private val movieRepo: MovieRepo = MovieRepo()
     private val movieId: String = "2"
     val movie = MutableLiveData<Movie>()
-
     val movies: Flow<PagingData<Movie>> = getMovieListStream()
+
+    fun loadMovie(id: String) {
+        viewModelScope.launch {
+            movie.postValue(movieRepo.getMovie(id))
+        }
+    }
 
     private fun getMovieListStream(): Flow<PagingData<Movie>> {
         return Pager(PagingConfig(5)) {
@@ -26,10 +30,4 @@ class MovieViewModel() : ViewModel() {
         }.flow
     }
 
-    init {
-        viewModelScope.launch {
-            movie.value = movieRepo.getMovie(movieId)
-            Log.i("QUERY", movie.value.toString())
-        }
-    }
 }

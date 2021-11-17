@@ -7,5 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="redioteka_back">#FF151B20</color>
+    <color name="redioteka_red">#FF96302F</color>
     <color name="background">#151b20</color>
 </resources>

@@ -12,7 +12,7 @@ import com.example.redioteka.databinding.LoginFragmentBinding
 import com.example.redioteka.viewmodels.State
 import com.example.redioteka.viewmodels.UserViewModel
 
-class LoginFragment: Fragment() {
+class LoginFragment : Fragment() {
     protected val viewModel by viewModels<UserViewModel>()
     protected var _binding: LoginFragmentBinding? = null
 
@@ -31,7 +31,7 @@ class LoginFragment: Fragment() {
         binding().loginButton.setOnClickListener { login() }
 
         viewModel.state().observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is State.Success -> {
                     //val intent = Intent(getView()?.context, MovieView::class.java)
                     //startActivity(intent)
