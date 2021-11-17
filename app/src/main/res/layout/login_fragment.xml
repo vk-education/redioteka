@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.LoginFragment"
+        android:background="@color/background"
+        android:orientation="vertical"
+        android:paddingHorizontal="40dp"
+        >
+
+        <TextView
+                android:id="@+id/header_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textSize="48sp"
+                android:text="вход"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="120dp"
+        />
+        <TextView
+                android:id="@+id/header_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:text="войдите для просмотра\nфильмов и сериалов"
+                android:layout_gravity="center"
+                android:gravity="center"
+        />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:orientation="vertical">
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edit_email"
+                        android:textColor="@color/white"
+                        android:hint="Email"
+                        android:textColorHint="@color/white"
+                        android:focusable="true"
+                />
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edit_password"
+                        android:textColor="@color/white"
+                        android:hint="Password"
+                        android:textColorHint="@color/white"
+                        android:focusable="true"
+                        android:inputType="textPassword"
+                />
+                <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/loginButton"
+                        android:text="Войти"
+                />
+                <TextView
+                        android:id="@+id/login_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/white"
+                        android:text="ещё нет аккаунта?\nзарегистрируйтесь!"
+                        android:gravity="center"
+                        android:layout_marginTop="16dp"
+                />
+        </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

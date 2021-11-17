@@ -1,13 +1,12 @@
 package com.example.redioteka
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import com.example.redioteka.viewmodels.ActorViewModel
 import com.example.redioteka.viewmodels.MovieViewModel
 import com.example.redioteka.viewmodels.UserViewModel
-import com.example.redioteka.views.MovieView
+import com.example.redioteka.views.LoginFragment
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private val userViewModel by viewModels<UserViewModel>()
@@ -18,11 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val intent = Intent(this, MovieView::class.java)
-        startActivity(intent)
-
-        var uvm = userViewModel
-        var mvm = movieViewModel
-        var avm = actorViewModel
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, LoginFragment(), "TAG")
+                .commit()
+        }
     }
 }
