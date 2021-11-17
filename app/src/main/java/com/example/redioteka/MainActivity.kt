@@ -24,19 +24,10 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        <<<<<<< HEAD
-        val intent = Intent(this, MoviePageView::class.java)
-        startActivity(intent)
-//
-//        val intent = Intent(this, MovieView::class.java)
-//        startActivity(intent)
-//
-        ====== =
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, LoginFragment(), "TAG")
                 .commit()
         }
-        >>>>>>> develop
     }
 }

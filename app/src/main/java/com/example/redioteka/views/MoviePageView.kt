@@ -1,6 +1,7 @@
 package com.example.redioteka.views
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -10,15 +11,24 @@ import com.example.redioteka.viewmodels.MovieViewModel
 
 
 class MoviePageView : AppCompatActivity() {
+
+    companion object {
+        const val MOVIE_ID: String = "2"
+    }
+
     private val viewModel by viewModels<MovieViewModel>()
 
     private lateinit var mainBinding: MoviePageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val letterId = intent?.extras?.getString(MOVIE_ID).toString()
+
         mainBinding = MoviePageBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
-        setMovie()
+        setMovie(letterId)
+
     }
 
     private fun getActorNames(actors: List<Actor>): List<String> {
@@ -31,8 +41,8 @@ class MoviePageView : AppCompatActivity() {
         return actorList
     }
 
-    private fun setMovie() {
-        viewModel.loadMovie("2")
+    private fun setMovie(id: String) {
+        viewModel.loadMovie(id)
         viewModel.movie.observe(this) { movie ->
             Glide.with(this).load(movie?.avatar).into(mainBinding.movieImage)
             mainBinding.movieTitle.text = movie?.title.toString()
