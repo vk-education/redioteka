@@ -33,14 +33,14 @@ class LoginFragment : Fragment() {
         viewModel.state().observe(viewLifecycleOwner) {
             when (it) {
                 is State.Success -> {
-                    //val intent = Intent(getView()?.context, MovieView::class.java)
-                    //startActivity(intent)
+                    val intent = Intent(getView()?.context, MovieView::class.java)
+                    startActivity(intent)
                     Toast.makeText(getView()?.context, "Authorized", Toast.LENGTH_LONG).show()
                 }
                 is State.Fail -> {
                     Toast.makeText(getView()?.context, "Not Authorized", Toast.LENGTH_LONG).show()
-                    val intent = Intent(getView()?.context, MovieView::class.java)
-                    startActivity(intent)
+                    //val intent = Intent(getView()?.context, MovieView::class.java)
+                    //startActivity(intent)
                 }
             }
         }
