@@ -47,8 +47,8 @@ class LoginFragment : Fragment() {
     }
 
     protected fun login() {
-        val email: String = binding().editEmail.toString()
-        val password: String = binding().editPassword.toString()
+        val email: String = binding().editEmail.text.toString()
+        val password: String = binding().editPassword.text.toString()
         viewModel.login(email, password)
     }
 
