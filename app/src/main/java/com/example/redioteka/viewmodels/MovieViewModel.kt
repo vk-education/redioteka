@@ -1,5 +1,7 @@
 package com.example.redioteka.viewmodels
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,8 +14,8 @@ import com.example.redioteka.repository.paged.MoviePagingSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-class MovieViewModel() : ViewModel() {
-    private val movieRepo: MovieRepo = MovieRepo()
+class MovieViewModel(app: Application) : AndroidViewModel(app) {
+    private val movieRepo: MovieRepo = MovieRepo(app.applicationContext)
     private val movieId: String = "2"
     val movie = MutableLiveData<Movie>()
     val movies: Flow<PagingData<Movie>> = getMovieListStream()
