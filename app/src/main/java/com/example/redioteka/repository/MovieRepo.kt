@@ -16,4 +16,8 @@ class MovieRepo(context: Context) {
     suspend fun getTopMovies(limit: Int, offset: Int): MovieTop = withContext(Dispatchers.IO) {
         return@withContext api.getTop(limit, offset, "movie")
     }
+
+    suspend fun getTopSeries(limit: Int, offset: Int): MovieTop = withContext(Dispatchers.IO) {
+        return@withContext api.getTop(limit, offset, "series")
+    }
 }
