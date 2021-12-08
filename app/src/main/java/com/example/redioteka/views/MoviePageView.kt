@@ -1,5 +1,6 @@
 package com.example.redioteka.views
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,11 @@ class MoviePageView : AppCompatActivity() {
         setContentView(mainBinding.root)
         setMovie(movieID)
 
+        mainBinding.playButton.setOnClickListener {
+            val intent = Intent(it.context, PlayerActivity::class.java)
+            intent.putExtra(PlayerActivity.MOVIE_ID, viewModel.movie.value!!.id.toString())
+            startActivity(intent)
+        }
     }
 
     private fun getActorNames(actors: List<Actor>): List<String> {

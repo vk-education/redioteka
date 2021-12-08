@@ -9,6 +9,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.redioteka.models.Movie
+import com.example.redioteka.models.Stream
 import com.example.redioteka.repository.MovieRepo
 import com.example.redioteka.repository.paged.MoviePagingSource
 import com.example.redioteka.repository.paged.SeriesPagingSource
@@ -19,12 +20,19 @@ class MovieViewModel(app: Application) : AndroidViewModel(app) {
     private val movieRepo: MovieRepo = MovieRepo(app.applicationContext)
     private val movieId: String = "2"
     val movie = MutableLiveData<Movie>()
+    val stream = MutableLiveData<Stream>()
     val series: Flow<PagingData<Movie>> = getSeriesListStream()
     val movies: Flow<PagingData<Movie>> = getMovieListStream()
 
     fun loadMovie(id: String) {
         viewModelScope.launch {
             movie.postValue(movieRepo.getMovie(id))
+        }
+    }
+
+    fun getStream(id: String) {
+        viewModelScope.launch {
+            stream.postValue(movieRepo.getMovieStream(id)[0])
         }
     }
 
