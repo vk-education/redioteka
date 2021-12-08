@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">redioteka</string>
+    <string name="movie_year">ГОД: %1$s</string>
+    <string name="movie_rating">РЕЙТИНГ %1$s/10</string>
+    <string name="movie_director">РЕЖИССЕР: %1$s</string>
+    <string name="movie_genres">ЖАНРЫ: %1$s</string>
+    <string name="movie_countries">СТРАНЫ: %1$s</string>
+    <string name="movie_main_actors">В главных ролях:\n\t%1$s</string>
 </resources>
