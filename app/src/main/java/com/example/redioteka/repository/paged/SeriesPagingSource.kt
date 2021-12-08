@@ -15,7 +15,9 @@ class SeriesPagingSource(
                 params.loadSize,
                 nextPage * params.loadSize
             )
-
+            movieListResponse.movies.forEach {
+                it.type = "Сериал"
+            }
             LoadResult.Page(
                 data = movieListResponse.movies,
                 prevKey = if (nextPage == 0) null else nextPage - 1,
