@@ -2,10 +2,10 @@ package com.example.redioteka.views
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.redioteka.R
 import com.example.redioteka.databinding.MoviePageBinding
 import com.example.redioteka.models.Actor
 import com.example.redioteka.viewmodels.MovieViewModel
@@ -24,11 +24,11 @@ class MoviePageView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val letterId = intent?.extras?.getString(MOVIE_ID).toString()
+        val movieID = intent?.extras?.getString(MOVIE_ID).toString()
 
         mainBinding = MoviePageBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
-        setMovie(letterId)
+        setMovie(movieID)
 
         mainBinding.playButton.setOnClickListener {
             val intent = Intent(it.context, PlayerActivity::class.java)
@@ -52,15 +52,24 @@ class MoviePageView : AppCompatActivity() {
         viewModel.movie.observe(this) { movie ->
             Glide.with(this).load(movie?.avatar).into(mainBinding.movieImage)
             mainBinding.movieTitle.text = movie?.title.toString()
-            mainBinding.movieYear.text = "ГОД: ${movie?.year.toString()}"
-            mainBinding.movieRating.text = "РЕЙТИНГ ${movie?.rating.toString()}/10"
+            mainBinding.movieYear.text = getString(R.string.movie_year, movie?.year.toString())
+            mainBinding.movieRating.text =
+                getString(R.string.movie_rating, movie?.rating.toString())
             mainBinding.movieType.text = movie?.type.toString()
-            mainBinding.movieDirector.text = "РЕЖИССЕР: ${movie?.directors!!.joinToString(" ")}"
-            mainBinding.movieGenres.text = "ЖАНРЫ: ${movie?.genres!!.joinToString(", ")}"
-            mainBinding.movieCountries.text = "СТРАНЫ: ${movie?.countries!!.joinToString(", ")}"
+            mainBinding.movieDirector.text =
+                getString(R.string.movie_director, movie?.directors!!.joinToString(" "))
+            mainBinding.movieGenres.text =
+                getString(R.string.movie_genres, movie.genres.joinToString(", "))
+            mainBinding.movieCountries.text =
+                getString(R.string.movie_countries, movie.countries.joinToString(", "))
             mainBinding.movieActors.text =
-                "В главных ролях:\n\t${getActorNames(movie?.actors!!).joinToString("\n\t")}"
-            mainBinding.movieDescription.text = movie.description.toString()
+                getString(
+                    R.string.movie_main_actors,
+                    getActorNames(movie.actors).joinToString("\n\t")
+                )
+            mainBinding.movieDescription.text = movie.description
+
+
         }
     }
 }
