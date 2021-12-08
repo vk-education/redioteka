@@ -30,15 +30,15 @@ class SeriesPageView : AppCompatActivity() {
 
         val movieID = intent?.extras?.getString(MOVIE_ID).toString()
 
+        mainBinding = SeriesPageBinding.inflate(layoutInflater)
+        setContentView(mainBinding.root)
+        setMovie(movieID)
+
         mainBinding.playButton.setOnClickListener {
             val intent = Intent(it.context, PlayerActivity::class.java)
             intent.putExtra(PlayerActivity.MOVIE_ID, viewModel.movie.value!!.id.toString())
             startActivity(intent)
         }
-
-        mainBinding = SeriesPageBinding.inflate(layoutInflater)
-        setContentView(mainBinding.root)
-        setMovie(movieID)
 
     }
 
