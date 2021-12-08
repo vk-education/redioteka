@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.redioteka.ActivityWithBottom
+import com.example.redioteka.R
 import com.example.redioteka.databinding.LoginFragmentBinding
 import com.example.redioteka.viewmodels.State
 import com.example.redioteka.viewmodels.UserViewModel
@@ -33,8 +35,11 @@ class LoginFragment : Fragment() {
         viewModel.state().observe(viewLifecycleOwner) {
             when (it) {
                 is State.Success -> {
-                    val intent = Intent(getView()?.context, MovieView::class.java)
+                    val intent = Intent(getView()?.context, ActivityWithBottom::class.java)
                     startActivity(intent)
+                    //val moviesFragment = MoviesViewFragment()
+                    //val seriesFragment = SeriesViewFragment()
+                    //activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, moviesFragment)?.commit()
                     Toast.makeText(getView()?.context, "Authorized", Toast.LENGTH_LONG).show()
                 }
                 is State.Fail -> {

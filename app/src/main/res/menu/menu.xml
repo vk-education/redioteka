@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ic_movies"
+        android:icon="@drawable/movies_icon"
+        android:title="Фильмы"/>
+
+    <item
+            android:id="@+id/ic_series"
+            android:icon="@drawable/series_icon"
+            android:title="Сериалы"/>
+</menu>
