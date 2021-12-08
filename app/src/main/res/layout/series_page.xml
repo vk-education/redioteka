@@ -64,7 +64,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/add_favourite_button"
                     app:layout_constraintTop_toBottomOf="@id/movie_type"
-                    app:layout_constraintBottom_toTopOf="@id/movie_year"
                     android:background="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:drawableTop="@drawable/ic_play"
@@ -76,7 +75,6 @@
                     app:layout_constraintTop_toBottomOf="@id/movie_type"
                     app:layout_constraintStart_toEndOf="@id/play_button"
                     app:layout_constraintEnd_toStartOf="@id/like_button"
-                    app:layout_constraintBottom_toTopOf="@id/movie_year"
                     android:textSize="0sp"
                     android:layout_width="wrap_content"
                     android:drawableTop="@drawable/ic_favourite"
@@ -88,7 +86,6 @@
                     app:layout_constraintTop_toBottomOf="@id/movie_type"
                     app:layout_constraintStart_toEndOf="@id/add_favourite_button"
                     app:layout_constraintEnd_toStartOf="@id/dislike_button"
-                    app:layout_constraintBottom_toTopOf="@id/movie_year"
                     android:drawableTop="@drawable/ic_like"
                     android:textSize="0sp"
                     android:background="@android:color/transparent"
@@ -100,7 +97,6 @@
                     app:layout_constraintTop_toBottomOf="@id/movie_type"
                     app:layout_constraintStart_toEndOf="@id/like_button"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/movie_year"
                     android:textSize="0sp"
                     android:drawableTop="@drawable/ic_dislike"
                     android:background="@android:color/transparent"
@@ -113,30 +109,58 @@
                     android:layout_height="wrap_content"
                     android:text="@string/select_season"
                     android:textSize="20sp"
+                    android:layout_marginStart="10sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/play_button" />
 
-            <RadioGroup
-                    android:id="@+id/season_number_selector"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+            <HorizontalScrollView
+                    android:id="@+id/season_number_selector_wrapper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     app:layout_constraintTop_toBottomOf="@id/season_number"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent">
+
+                <RadioGroup
+                        android:id="@+id/season_number_selector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+            </HorizontalScrollView>
 
             <TextView
                     android:id="@+id/serie_number"
                     android:layout_width="wrap_content"
+                    android:layout_marginStart="10sp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="20sp"
                     android:text="@string/select_serie"
-                    app:layout_constraintTop_toBottomOf="@id/season_number" />
+                    app:layout_constraintTop_toBottomOf="@id/season_number_selector_wrapper" />
+
+
+            <HorizontalScrollView
+                    android:id="@+id/serie_number_selector_wrapper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/serie_number"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                <RadioGroup
+                        android:id="@+id/serie_number_selector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+            </HorizontalScrollView>
 
             <TextView
                     android:id="@+id/movie_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/serie_number"
+                    app:layout_constraintTop_toBottomOf="@id/serie_number_selector_wrapper"
                     android:textSize="20sp"
                     android:layout_marginStart="10sp"
                     app:layout_constraintStart_toStartOf="parent"

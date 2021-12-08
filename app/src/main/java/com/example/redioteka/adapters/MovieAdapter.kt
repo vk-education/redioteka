@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.redioteka.databinding.MovieItemBinding
 import com.example.redioteka.models.Movie
 import com.example.redioteka.views.MoviePageView
+import com.example.redioteka.views.SeriesPageView
 
 class MovieAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(
     MovieModelComparator
@@ -21,7 +22,7 @@ class MovieAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
-            val intent = Intent(context, MoviePageView::class.java)
+            val intent = Intent(context, SeriesPageView::class.java)
             val movieID = (item as Movie).id.toString()
             intent.putExtra(MoviePageView.MOVIE_ID, movieID)
             context.startActivity(intent)
