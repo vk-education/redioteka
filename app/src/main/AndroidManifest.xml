@@ -13,6 +13,7 @@
             android:theme="@style/Theme.Redioteka">
         <activity android:name=".views.MoviePageView" />
         <activity android:name=".views.MovieView" />
+        <activity android:name=".views.PlayerActivity" />
         <activity
                 android:name=".MainActivity"
                 android:exported="true">
