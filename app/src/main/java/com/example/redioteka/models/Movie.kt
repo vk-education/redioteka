@@ -26,7 +26,7 @@ data class Movie(
     @SerializedName("is_free")
     val isFree: Boolean,
     @SerializedName("type")
-    val type: String,
+    var type: String,
     @SerializedName("series_list")
     val seriesList: List<Int>,
     @SerializedName("availability")

@@ -15,6 +15,7 @@
             android:theme="@style/Theme.Redioteka">
         <activity android:name=".ActivityWithBottom" />
         <activity android:name=".views.MoviePageView" />
+        <activity android:name=".views.SeriesPageView" />
         <activity android:name=".views.MovieView" />
         <activity android:name=".views.PlayerActivity" />
         <activity

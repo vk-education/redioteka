@@ -1,6 +1,7 @@
 package com.example.redioteka.adapters
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -10,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.redioteka.databinding.MovieItemBinding
 import com.example.redioteka.models.Movie
 import com.example.redioteka.views.MoviePageView
+import com.example.redioteka.views.SeriesPageView
 
 class MovieAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(
     MovieModelComparator
@@ -21,10 +23,17 @@ class MovieAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
-            val intent = Intent(context, MoviePageView::class.java)
-            val movieID = (item as Movie).id.toString()
-            intent.putExtra(MoviePageView.MOVIE_ID, movieID)
-            context.startActivity(intent)
+            if ((item as Movie).type == "Сериал") {
+                val intent = Intent(context, SeriesPageView::class.java)
+                val movieID = (item as Movie).id.toString()
+                intent.putExtra(SeriesPageView.MOVIE_ID, movieID)
+                context.startActivity(intent)
+            } else {
+                val intent = Intent(context, MoviePageView::class.java)
+                val movieID = (item as Movie).id.toString()
+                intent.putExtra(MoviePageView.MOVIE_ID, movieID)
+                context.startActivity(intent)
+            }
         }
     }
 

@@ -6,4 +6,6 @@
     <string name="movie_genres">ЖАНРЫ: %1$s</string>
     <string name="movie_countries">СТРАНЫ: %1$s</string>
     <string name="movie_main_actors">В главных ролях:\n\t%1$s</string>
+    <string name="select_season">Выберите сезон:</string>
+    <string name="select_serie">Выберите серию:</string>
 </resources>
