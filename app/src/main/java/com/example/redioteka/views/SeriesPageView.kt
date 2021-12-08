@@ -1,6 +1,7 @@
 package com.example.redioteka.views
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -28,6 +29,12 @@ class SeriesPageView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val movieID = intent?.extras?.getString(MOVIE_ID).toString()
+
+        mainBinding.playButton.setOnClickListener {
+            val intent = Intent(it.context, PlayerActivity::class.java)
+            intent.putExtra(PlayerActivity.MOVIE_ID, viewModel.movie.value!!.id.toString())
+            startActivity(intent)
+        }
 
         mainBinding = SeriesPageBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
