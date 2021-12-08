@@ -34,6 +34,8 @@ class ActivityWithBottom : AppCompatActivity() {
             }
             true
         }
+
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).itemIconTintList = null
     }
 
     private fun replaceFragment(fragment: Fragment) {
