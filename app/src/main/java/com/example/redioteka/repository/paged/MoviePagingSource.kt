@@ -11,7 +11,7 @@ class MoviePagingSource(
 
         return try {
             val nextPage = params.key ?: 0
-            val movieListResponse = repository.getTopSeries(
+            val movieListResponse = repository.getTopMovies(
                 params.loadSize,
                 nextPage * params.loadSize
             )
