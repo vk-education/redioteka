@@ -3,6 +3,7 @@ package com.example.redioteka.repository
 import android.content.Context
 import com.example.redioteka.models.Movie
 import com.example.redioteka.models.MovieTop
+import com.example.redioteka.models.Stream
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -15,5 +16,9 @@ class MovieRepo(context: Context) {
 
     suspend fun getTopMovies(limit: Int, offset: Int): MovieTop = withContext(Dispatchers.IO) {
         return@withContext api.getTop(limit, offset, "movie")
+    }
+
+    suspend fun getMovieStream(id: String): List<Stream> = withContext(Dispatchers.IO) {
+        return@withContext api.getMovieStream(id)
     }
 }
