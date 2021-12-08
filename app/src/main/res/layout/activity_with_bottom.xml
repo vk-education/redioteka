@@ -18,6 +18,7 @@
             app:menu="@menu/menu"
             android:background="#07090B"
             app:itemTextColor="@color/white"
+            app:itemIconSize="40sp"
             />
     <FrameLayout
             android:layout_width="match_parent"
