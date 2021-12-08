@@ -7,10 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.example.redioteka.databinding.ActivityPlayerBinding
-import com.example.redioteka.databinding.MoviePageBinding
 import com.example.redioteka.viewmodels.MovieViewModel
-import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.ext.okhttp.OkHttpDataSource
+import com.google.android.exoplayer2.source.DefaultMediaSourceFactory
+import com.google.android.exoplayer2.upstream.HttpDataSource
+import okhttp3.OkHttpClient
 
 class PlayerActivity : AppCompatActivity() {
     protected var _binding: ActivityPlayerBinding? = null
@@ -62,12 +65,15 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     private fun playerInit() {
+        val factory: HttpDataSource.Factory = OkHttpDataSource.Factory(OkHttpClient.Builder().build())
         player = ExoPlayer.Builder(this)
+            .setMediaSourceFactory(DefaultMediaSourceFactory(factory))
             .build()
             .also { exoPlayer ->
                 binding().videoView.player = exoPlayer
 
                 if (videoPath != null) {
+                    videoPath = "http" + videoPath?.removePrefix("https")
                     Log.i("VIDEO", videoPath.toString())
                     val mediaItem = MediaItem.fromUri(videoPath!!)
                     exoPlayer.setMediaItem(mediaItem)

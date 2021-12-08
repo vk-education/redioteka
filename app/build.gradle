@@ -52,6 +52,7 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-core:2.16.1'
     implementation 'com.google.android.exoplayer:exoplayer-dash:2.16.1'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.16.1'
+    implementation 'com.google.android.exoplayer:extension-okhttp:2.16.1'
 
     //App
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
